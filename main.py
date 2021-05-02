@@ -233,8 +233,7 @@ def mainProcess():
         print("        python {0} -d com.mas0n.testApp".format(sys.argv[0]))
         ColorPrinter.print_white_text("Tips : ")
         print("        -d [-dump]")
-        # print("        -r [-replace]")
-        print("        -m [-replace all file in dir]")
+        print("        -r [-replace]")
 
         print("        If you want to specify a folder replacement, You can add optional parameters: [absDir]")
         print("        Support: dump .jsc files/local overrides\n")
@@ -263,7 +262,7 @@ def mainProcess():
         callCls = CallBackCls(0, rootPath)
         callBack = callCls.dumpCallback
 
-    else:
+    elif instruct[1:2] == "r":
         if ownPath is None:
             ownPath = os.path.join(runPath, hookPackageName)
 
