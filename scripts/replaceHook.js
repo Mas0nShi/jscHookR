@@ -34,10 +34,11 @@ function hook() {
                         //console.log(parseInt(value.payload["Size"], 16),args[2].toInt32(), args[2], args[1].readCString().length)
 
                         if (parseInt(value.payload["Size"], 16) > args[1].readCString().length) {
-                            send({Status:"Warning", Msg: `File: ${pathName} size may exceeds the source file, which may cause the App to run abnormally, please reduce the file size.`});
-                        }
-                        args[1].writeUtf8String(value.payload["Data"]);
 
+                            send({Status:"Warning", Msg: "File: " + pathName + "size may exceeds the source file, which may cause the App to run abnormally, please reduce the file size."});
+                        }
+
+                        args[1].writeUtf8String(value.payload["Data"]);
                         send({Status:"replaceOk", Path: pathName});
                     }
                 });
