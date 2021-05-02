@@ -97,24 +97,11 @@ def readHookJs(path):
 
 
 def mkDir(filePath):
-    tmpPath = filePath
-
-    mkDirArr = []
-    while 1:
-        if os.path.exists(tmpPath):
-            break
-        else:
-            mkDirArr.append(tmpPath)
-        tmpPath = os.path.split(tmpPath)[0]
-
-    mkDirArr.reverse()
-    if len(mkDirArr) != 0:
-        for mkPath in mkDirArr:
-            try:
-                os.mkdir(mkPath)
-            except OSError:
-                if not os.path.exists(mkPath):
-                    raise Exception("Error: create directory {0} failed.".format(mkPath))
+    try:
+        os.makedirs(filePath, 755)
+    except OSError:
+        if not os.path.exists(filePath):
+            raise Exception("Error: create directory {0} failed.".format(filePath))
 
 
 class CallBackCls:
