@@ -1,8 +1,5 @@
 # jscHookR
 
-
-
-# luac-Decryption
 ⛔Not applicable to binary files compiled with SpiderMonkey⛔
 
 ⚡This is a tool for reverse engineering cocos2djs Apps.⚡
