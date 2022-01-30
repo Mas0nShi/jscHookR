@@ -24,7 +24,7 @@ function hook() {
                 loadTime = new Date().getTime();
             }
         })
-    })
+    }
 
 
 function delay(isEnd){
