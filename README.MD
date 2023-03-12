@@ -1,32 +1,39 @@
 # jscHookR
 
-⛔Not applicable to binary files compiled with SpiderMonkey⛔
+## TL;DR
 
-⚡This is a tool for reverse engineering cocos2djs Apps.⚡
+a reverse engineering tool for android cocos2d-js engine application.
 
-👀 require: `frida`
+support dump and replace .jsc files.
 
+## Usage
 
-### Usage :
-        python main.py [-d] [PackageName]
-        python main.py [-r] [PackageName]
-### Example :
-        python main.py -d com.mas0n.testApp
-        python main.py -r com.mas0n.testApp
-### Tips :
-        -d [-dump] 
-        -r [-replace] (DirPath/PackageName)
-        If you want to specify a folder replacement, You can add optional parameters: [absDir]
-        Support: dump .jsc files/local overrides
-### Outputs :
-        The exported file is in the current running directory.
+Note: use android-frida-server at least `16.0.0+`
 
-### ❗Notice :
-    The replacement file cannot be larger than the source file, otherwise an unknown error will occur.
+1. Install
 
+    ``` bash
+    git clone https://github.com/Mas0nShi/jscHookR
+    pip3 install -r requirement.txt
+    cd jscHookR
+    ```
+   
+2. Enjoy it
 
- **Welcome to submit issue.**
+    e.g.
+    
+    ```bash
+    # Dump .jsc files
+    python3 frida-jsc-hook.py -p com.mas0n.testApp -d -o . 
+    # Replace .jsc files
+    python3 frida-jsc-hook.py -p com.mas0n.testApp -r -i ./com.mas0n.testApp
+    ```
 
-![example](https://github.com/Mas0nShi/jscHookR/blob/master/example.png)
+## Features
 
-If you have any questions, please contact [ MasonShi@88.com ]
+- [x] dump scripts loaded by cocos2d-js engine.
+- [x] runtime replace (include no-filename scripts)
+
+## Preview
+
+![preview](screenshot/preview.png)
